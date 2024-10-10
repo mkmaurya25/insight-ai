@@ -5,3 +5,5 @@ langchain_huggingface==0.1.0
 python-dotenv==1.0.1
 streamlit==1.36.0
 unstructured==0.15.13
+faiss-cpu==1.8.0
+langchain-huggingface==0.1.0
