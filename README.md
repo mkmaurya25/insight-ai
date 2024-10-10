@@ -30,9 +30,9 @@ To set up the project, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/insightai-news-research.git
-   cd insightai-news-research
-
+   git clone https://github.com/yourusername/insightai.git
+   cd insightai
+   ```
 2. **Install the required packages:**
     ```
     pip install -r requirements.txt
@@ -40,8 +40,33 @@ To set up the project, follow these steps:
 
 3. **Set up environment variables:**
 
-Create a .env file in the root directory of the project and add your environment variables, such as API keys, if necessary.
-    ```
-    # Example .env content
-    YOUR_API_KEY=your_api_key_here
-    ```
+   Create a .env file in the root directory of the project and add your environment variables, such as API keys, if necessary.
+    
+   ```
+   # Example .env content
+   OPENAI_API_KEY="your_api_key_here"
+   ```
+4. **Run the app**
+   ```
+   streamlit run app.py
+   ```
+
+## Usage
+   - Enter News Article URLs: In the sidebar, input up to three news article URLs.
+   - Process the URLs: Click the "Process URLs" button to start loading and processing the content from the specified URLs.
+   - Ask a Question: Once the data is processed, you can enter any question related to the articles in the "Question" input field.
+   - View Results: The application will display the answer to your question along with sourced references.
+
+## Example
+
+- Enter the URLs of relevant news articles in the sidebar.
+- Click on "Process URLs" to extract and analyze the content.
+- Type your question, for example, "What are the main points discussed in the articles?" and hit Enter.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Acknowledgements
+This application utilizes LangChain and Groq for handling language models and document processing.
+Special thanks to the open-source community for providing powerful libraries and frameworks.
