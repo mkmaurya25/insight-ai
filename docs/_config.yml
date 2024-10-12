@@ -1,0 +1,12 @@
+theme: jekyll-theme-cayman
+# theme: jekyll-theme-minimal
+# theme: jekyll-theme-tactile
+# theme: jekyll-theme-leap-day
+# theme: jekyll-theme-merlot
+# theme: jekyll-theme-slate
+# theme: jekyll-theme-time-machine
+# theme: jekyll-theme-chalk
+# title: ""
+# description: "Description"
+github:
+  is_project_page: false
