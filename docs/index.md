@@ -1,3 +1,8 @@
+---
+layout: default
+title: "InsightAI"
+---
+
 # InsightAI: An App for News Research with Language Models
 In this article, we'll walk through the creation of a Streamlit application that leverages large language models for real-time research on news articles. Using the powerful LangChain framework, we'll create a system that allows users to input news URLs, generate embeddings from the text, and ask questions based on the retrieved information. The app integrates ChatGroq (a LLaMA-based language model) and Hugging Face embeddings, providing a scalable and responsive solution for working with textual data.
 
@@ -10,7 +15,7 @@ In this article, we'll walk through the creation of a Streamlit application that
 
 Let's dive into the details of how this works.
 
-## Step 1: Setting up the Environment
+## Setting up the Environment
 
 The core libraries and tools used in this app are:
 
@@ -26,7 +31,7 @@ pip install streamlit langchain langchain_groq langchain_huggingface langchain_c
 ```
 You should have groq api key. You can get it from `https://console.groq.com`. You can also get the llm models from `https://console.groq.com/docs/models`.
 
-## Step 2: Application Structure
+## Application Structure
 ### API Configuration
 
 The app starts by asking the user to provide their GROQ API key. This is important because the language model requires an API key for authentication. For security purposes, we use a password-protected input field to hide the API key:
