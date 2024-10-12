@@ -26,7 +26,7 @@ The core libraries and tools used in this app are:
 -   FAISS: A library for efficient similarity search and clustering of dense vectors, used for storing and querying the document embeddings.
 
 Before starting, install the required dependencies:
-```
+```python
 pip install streamlit langchain langchain_groq langchain_huggingface langchain_community unstructured faiss-cpu
 ```
 You should have groq api key. You can get it from `https://console.groq.com`. You can also get the llm models from `https://console.groq.com/docs/models`.
@@ -36,7 +36,7 @@ You should have groq api key. You can get it from `https://console.groq.com`. Yo
 
 The app starts by asking the user to provide their GROQ API key. This is important because the language model requires an API key for authentication. For security purposes, we use a password-protected input field to hide the API key:
 
-```
+```python
 # Input for API key (hidden with password field)
 api_key = st.sidebar.text_input("Enter your GROQ API Key", type="password")
 
@@ -47,18 +47,18 @@ else:
     st.sidebar.success("API Key entered successfully!")
 ```
 This block ensures the user cannot proceed with the URL processing or question answering functionality unless they provide the API key. Alternativley, you can create a .env file in root directory of the project and use
-```
+```python
 from dotenv import load_dotenv
 load_dotenv()
 ```
 The .env file will look like
-```
+```python
 GROQ_API_KEY = "your api key here"
 ```
 ## URL Input and Data Processing
 
 Next, users can input up to three news article URLs. The app uses UnstructuredURLLoader from LangChain to fetch and load the content of the URLs.
-```
+```python
 # Input for URLs
 st.sidebar.title("News Article URLs")
 urls = []
@@ -69,7 +69,7 @@ for i in range(3):
 process_url_clicked = st.sidebar.button("Process URLs")
 ```
 Once the URLs are entered, the process_url_clicked button initiates the data retrieval and preprocessing steps. The content from the URLs is split into manageable chunks using RecursiveCharacterTextSplitter:
-```
+```python
 if process_url_clicked:
     # Load data from URLs
     loader = UnstructuredURLLoader(urls=urls)
@@ -87,13 +87,13 @@ This chunking step is essential for improving the accuracy of the language model
 ## Creating Embeddings and Storing with FAISS
 
 With the document chunks ready, the next step is to create embeddings. We use the Hugging Face Embeddings to transform the text into vectors, which can then be efficiently searched using FAISS.
-```
+```python
 # Create embeddings and FAISS index
 embeddings = HuggingFaceEmbeddings()
 vectorstore_openai = FAISS.from_documents(docs, embeddings)
 ```
 The resulting FAISS index is stored in a pickle file for reuse:
-```
+```python
 with open(file_path, "wb") as f:
     pickle.dump(vectorstore_openai, f)
 ```
@@ -102,7 +102,7 @@ This approach ensures that once the embeddings are created, they don't need to b
 ### Question-Answering with RetrievalQA
 
 The final core feature of the app is the ability for users to ask questions based on the content of the news articles. We use RetrievalQAWithSourcesChain to combine the language model with the FAISS retriever:
-```
+```python
 query = main_placeholder.text_input("Question: ")
 if query:
     if os.path.exists(file_path):
