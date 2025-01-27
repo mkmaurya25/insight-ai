@@ -1,6 +1,6 @@
 # theme: jekyll-theme-cayman
-remote_theme: lewismiddleton/cayman-dark
-# theme: jekyll-theme-minimal
+# remote_theme: lewismiddleton/cayman-dark
+theme: jekyll-theme-minimal
 # theme: jekyll-theme-tactile
 # theme: jekyll-theme-leap-day
 # theme: jekyll-theme-merlot
